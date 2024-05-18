@@ -1,0 +1,32 @@
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\appsettings.json
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Modulo Api dotnet webApi.exe
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Modulo Api dotnet webApi.deps.json
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Modulo Api dotnet webApi.runtimeconfig.json
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Modulo Api dotnet webApi.dll
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Modulo Api dotnet webApi.pdb
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.csproj.AssemblyReference.cache
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.AssemblyInfoInputs.cache
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.AssemblyInfo.cs
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\staticwebassets\msbuild.Modulo Api dotnet webApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\staticwebassets\msbuild.build.Modulo Api dotnet webApi.props
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Modulo Api dotnet webApi.props
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Modulo Api dotnet webApi.props
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\scopedcss\bundle\Modulo Api dotnet webApi.styles.css
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo A.10EA172E.Up2Date
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.dll
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\refint\Modulo Api dotnet webApi.dll
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.pdb
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\Modulo Api dotnet webApi.genruntimeconfig.cache
+C:\Users\Alejandro\Desktop\Cursos\Modulo Api dotnet webApi\obj\Debug\net8.0\ref\Modulo Api dotnet webApi.dll
