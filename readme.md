@@ -1,5 +1,6 @@
 
-Comandos usados en consola vs code
+
+# Comandos usados en consola vs code
 
 ```sh
 dotnet add package Microsoft.EntityFrameworkCore  
@@ -55,6 +56,8 @@ dotnet watch run
 ### **Gerenciar migrações com Entity Framework Core**
 
 - `dotnet-ef migrations add CriacaoTabelaContato`: Este comando cria uma nova migração chamada `CriacaoTabelaContato`. As migrações no Entity Framework Core são usadas para gerenciar e aplicar alterações no esquema do banco de dados de maneira controlada e versionada.
+
+
     
 - `dotnet-ef database update`: Este comando aplica todas as migrações pendentes ao banco de dados, sincronizando-o com o esquema de dados definido no código do seu projeto. Ele garante que o banco de dados esteja atualizado com a versão mais recente das migrações.
     
@@ -63,57 +66,30 @@ dotnet watch run
 
 # Doc Program.cs Introducción Apis con net
 
-Este código es parte de una configuración básica de una aplicación ASP.NET Core utilizando el enfoque de punto de entrada único (`Program.cs`). Aquí hay una explicación detallada:
+```markdown
+# Configuração do `Program.cs` em um projeto ASP.NET Core
 
-1. `var builder = WebApplication.CreateBuilder(args);`:
-    
-    - `WebApplication.CreateBuilder(args)` es un método estático que crea un nuevo constructor de aplicaciones web. Toma los argumentos de la línea de comandos (`args`) y los utiliza para configurar el constructor de la aplicación.
-    - `builder` es un objeto que se utiliza para configurar y construir la aplicación.
-2. `builder.Services.AddControllers();`:
-    
-    - Agrega el servicio de controladores a la colección de servicios de la aplicación.
-    - Este servicio permite que la aplicación ASP.NET Core tenga controladores que respondan a las solicitudes HTTP.
-3. `builder.Services.AddEndpointsApiExplorer();`:
-    
-    - Agrega el servicio del explorador de API de puntos finales a la colección de servicios de la aplicación.
-    - Este servicio proporciona la capacidad de explorar y documentar los puntos finales de la API en tiempo de ejecución.
-4. `builder.Services.AddSwaggerGen();`:
-    
-    - Agrega el generador de Swagger a la colección de servicios de la aplicación.
-    - Swagger es una herramienta que permite documentar, probar e interactuar con API REST.
-5. `var app = builder.Build();`:
-    
-    - Construye la aplicación utilizando la configuración proporcionada por el constructor (`builder`).
-6. Configuración del pipeline de solicitud HTTP:
-    
-    - `if (app.Environment.IsDevelopment()) { ... }`: Verifica si la aplicación se está ejecutando en un entorno de desarrollo.
-    - `app.UseSwagger();` y `app.UseSwaggerUI();`: Habilita Swagger y su interfaz de usuario Swagger UI para la documentación de la API. Estos middleware solo se habilitan en el entorno de desarrollo.
-    - `app.UseHttpsRedirection();`: Redirige las solicitudes HTTP a HTTPS.
-    - `app.UseAuthorization();`: Agrega middleware para configurar la autorización.
-    - `app.MapControllers();`: Asocia los controladores de la aplicación con las rutas de los puntos finales de la API.
-7. `app.Run();`:
-    
-    - Inicia la aplicación, haciendo que escuche las solicitudes HTTP entrantes y las maneje según la configuración del pipeline de solicitud HTTP.
+O arquivo `Program.cs` em um projeto ASP.NET Core é o ponto de entrada principal para a aplicação. Ele configura e inicializa o aplicativo web, adiciona os serviços necessários e define como os pedidos HTTP são tratados.
 
+A seguir, é apresentada uma configuração típica do `Program.cs` para um projeto ASP.NET Core com suporte a Swagger/OpenAPI:
 
-```c#
-
+```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adiciona serviços ao contêiner.
 builder.Services.AddControllers();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Configura o Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configura o pipeline de requisição HTTP
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
@@ -124,37 +100,80 @@ app.MapControllers();
 
 app.Run();
 ```
+
+## Explicação das Configurações
+
+### Inicialização do WebApplication Builder
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+```
+
+- `WebApplication.CreateBuilder(args)`: Inicializa um novo construtor de aplicativo web com os argumentos fornecidos. Este construtor é responsável por configurar todos os serviços e middleware necessários para a aplicação.
+
+### Adicionando Serviços ao Contêiner
+
+```csharp
+// Adiciona serviços ao contêiner.
+builder.Services.AddControllers();
+
+// Configura o Swagger/OpenAPI
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+```
+
+- `builder.Services.AddControllers()`: Adiciona serviços de controle MVC ao contêiner de injeção de dependência, permitindo o uso de controladores na aplicação.
+- `builder.Services.AddEndpointsApiExplorer()`: Adiciona suporte para a exploração de endpoints da API, que é uma parte necessária para configurar o Swagger/OpenAPI.
+- `builder.Services.AddSwaggerGen()`: Adiciona o gerador Swagger, que produz documentação da API em conformidade com o Swagger/OpenAPI.
+
+### Construindo o Aplicativo
+
+```csharp
+var app = builder.Build();
+```
+
+- `builder.Build()`: Constrói a aplicação utilizando as configurações definidas anteriormente.
+
+### Configurando o Pipeline de Requisição HTTP
+
+```csharp
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
+```
+
+- `if (app.Environment.IsDevelopment())`: Verifica se o ambiente atual é o de desenvolvimento.
+    - `app.UseSwagger()`: Habilita o middleware Swagger para gerar a documentação da API.
+    - `app.UseSwaggerUI()`: Habilita a interface do usuário Swagger para navegar pela documentação da API.
+- `app.UseHttpsRedirection()`: Redireciona todas as solicitações HTTP para HTTPS, garantindo comunicações seguras.
+- `app.UseAuthorization()`: Adiciona o middleware de autorização, garantindo que as rotas protegidas sejam acessadas apenas por usuários autorizados.
+- `app.MapControllers()`: Mapeia as rotas dos controladores adicionados anteriormente para os endpoints apropriados.
+- `app.Run()`: Executa a aplicação, iniciando o servidor web e ouvindo as solicitações HTTP.
+
+---
+
+Este documento fornece uma visão geral de como configurar e usar o `Program.cs` em um projeto ASP.NET Core, explicando a inicialização do aplicativo, a adição de serviços, e a configuração do pipeline de requisição HTTP.
+
 # Doc UsuarioController.cs Introducción Apis con net
 
+```markdown
+# Configuração do `UsuarioController.cs` em um projeto ASP.NET Core
 
-Este código define un controlador de API en ASP.NET Core que maneja las solicitudes relacionadas con los usuarios. Aquí está la documentación:
+O arquivo `UsuarioController.cs` define um controlador API para gerenciar requisições HTTP relacionadas ao usuário. Este controlador possui duas ações: uma para obter a data e hora atuais e outra para apresentar uma mensagem de boas-vindas com o nome fornecido.
 
-1. `using Microsoft.AspNetCore.Mvc;`: Este espacio de nombres proporciona clases y métodos para crear y manejar controladores en ASP.NET Core.
-    
-2. `namespace Modulo_Api_dotnet_webApi.Controllers`: Define un espacio de nombres llamado `Modulo_Api_dotnet_webApi.Controllers`, que contiene la definición del controlador de la API.
-    
-3. `[ApiController]`: Un atributo de marcador que indica que la clase es un controlador de API. Esto habilita varios comportamientos por defecto, como la validación de modelo y la respuesta automática de códigos de estado HTTP.
-    
-4. `[Route("controller")]`: Especifica la ruta base para las solicitudes que se dirigen a este controlador. En este caso, todas las rutas se basarán en `/controller`.
-    
-5. `public class UsuarioController : ControllerBase`: Define una clase llamada `UsuarioController` que hereda de `ControllerBase`, lo que indica que es un controlador de API.
-    
-6. `[HttpGet("ObterDataHoraAtual")]`: Especifica que este método debe responder a las solicitudes HTTP GET en la ruta relativa `/controller/ObterDataHoraAtual`.
-    
-7. `public IActionResult ObterDataHora()`: Define un método llamado `ObterDataHora` que devuelve un `IActionResult`. Este método se llama cuando se realiza una solicitud HTTP GET a `/controller/ObterDataHoraAtual`.
-    
-8. Dentro de `ObterDataHora()`, se crea un objeto anónimo que contiene la fecha y hora actual en formato largo y corto.
-    
-9. `return Ok(obj);`: Devuelve una respuesta HTTP 200 (OK) junto con el objeto creado en el paso anterior.
-    
-10. `[HttpGet("Apresentar/{nome}")]`: Especifica que este método debe responder a las solicitudes HTTP GET en la ruta relativa `/controller/Apresentar/{nome}`, donde `{nome}` es un parámetro de ruta que acepta una cadena.
-    
-11. `public IActionResult Apresentar(string nome)`: Define un método llamado `Apresentar` que acepta un parámetro `nome` de tipo `string`. Este método se llama cuando se realiza una solicitud HTTP GET a `/controller/Apresentar/{nome}`.
-    
-12. Dentro de `Apresentar()`, se crea un mensaje de saludo utilizando el nombre proporcionado en el parámetro `nome`.
-    
-13. `return Ok(new { mensagem });`: Devuelve una respuesta HTTP 200 (OK) junto con un objeto anónimo que contiene el mensaje de saludo creado en el paso anterior.
-```c#
+A seguir, é apresentada uma configuração típica do `UsuarioController.cs` para um projeto ASP.NET Core:
+
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -163,27 +182,314 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Modulo_Api_dotnet_webApi.Controllers
 {
-    [ApiController]
-    [Route("controller")]
-    public class UsuarioController : ControllerBase
-    {
-        [HttpGet("ObterDataHoraAtual")]
-        public IActionResult ObterDataHora()
-        {
-            var obj = new
-            {
-                Data = DateTime.Now.ToLongDateString(),
-                Hora = DateTime.Now.ToShortTimeString(),
-            };
-            return Ok(obj);
-        }
-        
-        [HttpGet("Apresentar/{nome}")]
-        public IActionResult Apresentar(string nome)
-        {
-            var mensagem = $"Olá {nome}, seja bem vindo!";
-            return Ok(new{mensagem});
-        }
-    }
+    [ApiController]
+    [Route("controller")]
+    public class UsuarioController : ControllerBase
+    {
+        // Endpoint para obter a data e hora atuais
+        [HttpGet("ObterDataHoraAtual")]
+        public IActionResult ObterDataHora()
+        {
+            var obj = new
+            {
+                Data = DateTime.Now.ToLongDateString(),
+                Hora = DateTime.Now.ToShortTimeString(),
+            };
+            return Ok(obj);
+        }
+
+        // Endpoint para apresentar uma mensagem de boas-vindas com o nome fornecido
+        [HttpGet("Apresentar/{nome}")]
+        public IActionResult Apresentar(string nome)
+        {
+            var mensagem = $"Olá {nome}, seja bem vindo!";
+            return Ok(new { mensagem });
+        }
+    }
 }
 ```
+
+## Explicação das Configurações
+
+### Using Directives
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+```
+
+- `using System;`: Importa o namespace `System`, que contém tipos fundamentais como `DateTime`.
+- `using Microsoft.AspNetCore.Mvc;`: Importa o namespace `Microsoft.AspNetCore.Mvc`, que fornece tipos e funcionalidades para criar controladores e manipular requisições HTTP.
+
+### Definição da Classe `UsuarioController`
+
+```csharp
+namespace Modulo_Api_dotnet_webApi.Controllers
+{
+    [ApiController]
+    [Route("controller")]
+    public class UsuarioController : ControllerBase
+    {
+        // Métodos de ação aqui
+    }
+}
+```
+
+- `namespace Modulo_Api_dotnet_webApi.Controllers`: Define o namespace para o controlador, agrupando-o logicamente com outros controladores do projeto.
+- `[ApiController]`: Indica que esta classe é um controlador de API. Esta anotação facilita várias funcionalidades, como a validação automática de modelos.
+- `[Route("controller")]`: Define a rota base para as ações dentro deste controlador. O placeholder `"controller"` é substituído pelo nome do controlador sem o sufixo "Controller", ou seja, "Usuario".
+
+### Método `ObterDataHora`
+
+```csharp
+[HttpGet("ObterDataHoraAtual")]
+public IActionResult ObterDataHora()
+{
+    var obj = new
+    {
+        Data = DateTime.Now.ToLongDateString(),
+        Hora = DateTime.Now.ToShortTimeString(),
+    };
+    return Ok(obj);
+}
+```
+
+- `[HttpGet("ObterDataHoraAtual")]`: Define que este método responde a requisições HTTP GET na rota `ObterDataHoraAtual`.
+- `IActionResult ObterDataHora()`: Método de ação que retorna a data e hora atuais.
+- `DateTime.Now.ToLongDateString()`: Obtém a data atual em um formato de string longa.
+- `DateTime.Now.ToShortTimeString()`: Obtém a hora atual em um formato de string curta.
+- `return Ok(obj);`: Retorna um status HTTP 200 (OK) com o objeto contendo a data e hora atuais.
+
+### Método `Apresentar`
+
+```csharp
+[HttpGet("Apresentar/{nome}")]
+public IActionResult Apresentar(string nome)
+{
+    var mensagem = $"Olá {nome}, seja bem vindo!";
+    return Ok(new { mensagem });
+}
+```
+
+- `[HttpGet("Apresentar/{nome}")]`: Define que este método responde a requisições HTTP GET na rota `Apresentar/{nome}`, onde `{nome}` é um parâmetro de rota.
+- `IActionResult Apresentar(string nome)`: Método de ação que retorna uma mensagem de boas-vindas usando o nome fornecido na rota.
+- `var mensagem = $"Olá {nome}, seja bem vindo!";`: Cria uma mensagem de boas-vindas personalizada.
+- `return Ok(new { mensagem });`: Retorna um status HTTP 200 (OK) com o objeto contendo a mensagem de boas-vindas.
+
+---
+
+Este documento fornece uma visão geral de como configurar e usar o `UsuarioController.cs` em um projeto ASP.NET Core, explicando a definição de controladores, rotas e métodos de ação para manipulação de requisições HTTP.
+
+# Doc appsettings.json Introducción Apis con net
+
+```markdown
+# Configuração do `appsettings.json` em um projeto .NET
+
+O arquivo `appsettings.json` é usado para armazenar configurações de aplicativos em projetos .NET, especialmente aqueles que utilizam o ASP.NET Core. Este arquivo permite definir configurações em um formato estruturado e fácil de ler, geralmente em JSON. 
+
+A seguir, é apresentada uma configuração típica do `appsettings.json`:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+## Explicação das Configurações
+
+### Logging
+
+A seção `Logging` é usada para configurar como o aplicativo registra (ou loga) informações. O registro é uma parte crucial do monitoramento e depuração de aplicações. 
+
+#### LogLevel
+
+Dentro da seção `Logging`, a subseção `LogLevel` especifica os níveis de log para diferentes partes do aplicativo:
+
+- `"Default": "Information"`: Define o nível de log padrão como "Information". Isso significa que todas as mensagens de log com nível "Information" ou superior (como "Warning", "Error", e "Critical") serão registradas.
+- `"Microsoft.AspNetCore": "Warning"`: Define o nível de log para o namespace `Microsoft.AspNetCore` como "Warning". Isso significa que apenas mensagens de log com nível "Warning" ou superior para componentes do ASP.NET Core serão registradas.
+
+Os níveis de log em ordem crescente de severidade são: 
+1. Trace
+2. Debug
+3. Information
+4. Warning
+5. Error
+6. Critical
+7. None (para desativar o registro de log)
+
+### AllowedHosts
+
+A configuração `AllowedHosts` especifica quais hosts são permitidos para acessar a aplicação. Isso é útil para a segurança, especialmente em ambientes de produção:
+
+- `"AllowedHosts": "*"`: O valor `*` indica que todos os hosts são permitidos. Em um ambiente de produção, é recomendável restringir os hosts permitidos para melhorar a segurança, especificando uma lista de nomes de domínio.
+
+## Uso do `appsettings.json`
+
+Em um projeto ASP.NET Core, o `appsettings.json` é carregado automaticamente durante a inicialização do aplicativo. O conteúdo do arquivo pode ser acessado e utilizado através da injeção de dependência ou diretamente via `Configuration` no `Startup.cs`.
+
+### Exemplo de uso em `Startup.cs`
+
+```csharp
+public class Startup
+{
+    public IConfiguration Configuration { get; }
+
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Configurar serviços aqui
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+
+        // Exemplo de como usar uma configuração do appsettings.json
+        var logLevel = Configuration["Logging:LogLevel:Default"];
+        Console.WriteLine($"Default LogLevel: {logLevel}");
+    }
+}
+```
+
+Neste exemplo, a configuração de nível de log padrão é lida do `appsettings.json` e exibida no console.
+
+---
+
+Este documento fornece uma visão geral de como configurar e usar o `appsettings.json` em um projeto .NET, facilitando o gerenciamento de configurações de forma organizada e centralizada.
+
+# Doc appsettings.Development.json Apis con net
+
+```markdown
+# Configuração do `appsettings.Development.json` em um projeto .NET
+
+O arquivo `appsettings.Development.json` é usado para armazenar configurações específicas para o ambiente de desenvolvimento em projetos .NET, especialmente aqueles que utilizam o ASP.NET Core. Este arquivo permite que você tenha configurações diferentes para ambientes distintos (desenvolvimento, produção, etc.) sem a necessidade de alterar o código-fonte.
+
+A seguir, é apresentada uma configuração típica do `appsettings.Development.json`:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}
+```
+
+## Explicação das Configurações
+
+### Logging
+
+A seção `Logging` é usada para configurar como o aplicativo registra (ou loga) informações. O registro é uma parte crucial do monitoramento e depuração de aplicações.
+
+#### LogLevel
+
+Dentro da seção `Logging`, a subseção `LogLevel` especifica os níveis de log para diferentes partes do aplicativo:
+
+- `"Default": "Information"`: Define o nível de log padrão como "Information". Isso significa que todas as mensagens de log com nível "Information" ou superior (como "Warning", "Error", e "Critical") serão registradas.
+- `"Microsoft.AspNetCore": "Warning"`: Define o nível de log para o namespace `Microsoft.AspNetCore` como "Warning". Isso significa que apenas mensagens de log com nível "Warning" ou superior para componentes do ASP.NET Core serão registradas.
+
+Os níveis de log em ordem crescente de severidade são: 
+1. Trace
+2. Debug
+3. Information
+4. Warning
+5. Error
+6. Critical
+7. None (para desativar o registro de log)
+
+## Uso do `appsettings.Development.json`
+
+Em um projeto ASP.NET Core, o `appsettings.Development.json` é carregado automaticamente durante a inicialização do aplicativo quando o ambiente é configurado como "Development". O conteúdo do arquivo pode ser acessado e utilizado através da injeção de dependência ou diretamente via `Configuration` no `Startup.cs`.
+
+### Exemplo de uso em `Startup.cs`
+
+```csharp
+public class Startup
+{
+    public IConfiguration Configuration { get; }
+
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Configurar serviços aqui
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+
+        // Exemplo de como usar uma configuração do appsettings.Development.json
+        var logLevel = Configuration["Logging:LogLevel:Default"];
+        Console.WriteLine($"Default LogLevel: {logLevel}");
+    }
+}
+```
+
+Neste exemplo, a configuração de nível de log padrão é lida do `appsettings.Development.json` e exibida no console.
+
+---
+
+Este documento fornece uma visão geral de como configurar e usar o `appsettings.Development.json` em um projeto .NET, facilitando o gerenciamento de configurações específicas para o ambiente de desenvolvimento de forma organizada e centralizada.
