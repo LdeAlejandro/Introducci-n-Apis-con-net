@@ -1,3 +1,66 @@
+
+Comandos usados en consola vs code
+
+```sh
+dotnet add package Microsoft.EntityFrameworkCore  
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.sqlserver
+donet-ef migrations add CriacaoTabelaContato
+dotnet-ef database update
+dotnet watchrun
+```
+
+
+# .NET Commands Guide
+
+## **Comandos para adicionar pacotes e gerenciar migrações com Entity Framework Core**
+
+### **Adicionar pacotes do Entity Framework Core**
+
+```sh
+# Adiciona o pacote Microsoft.EntityFrameworkCore ao seu projeto .NET
+dotnet add package Microsoft.EntityFrameworkCore
+
+# Adiciona o pacote Microsoft.EntityFrameworkCore.Design ao seu projeto .NET, que contém ferramentas de design para o Entity Framework Core
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+# Adiciona o pacote Microsoft.EntityFrameworkCore.SqlServer ao seu projeto .NET, que permite o uso do SQL Server com o Entity Framework Core
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+```
+
+### **Gerenciar migrações com Entity Framework Core**
+
+```sh
+# Adiciona uma nova migração chamada "CriacaoTabelaContato" ao seu projeto. As migrações são usadas para gerenciar alterações no esquema do banco de dados
+dotnet-ef migrations add CriacaoTabelaContato
+
+# Aplica as migrações pendentes ao banco de dados, atualizando-o para a versão mais recente do esquema definido no código
+dotnet-ef database update
+
+# Executa o projeto .NET e recompila automaticamente as alterações feitas no código durante o desenvolvimento
+dotnet watch run
+```
+
+## Explicação dos Comandos
+
+### **Adicionar pacotes do Entity Framework Core**
+
+- `dotnet add package Microsoft.EntityFrameworkCore`: Este comando adiciona o pacote `Microsoft.EntityFrameworkCore` ao seu projeto .NET, que é o núcleo do Entity Framework Core, uma popular biblioteca de ORM (Mapeamento Objeto-Relacional).
+    
+- `dotnet add package Microsoft.EntityFrameworkCore.Design`: Este comando adiciona o pacote `Microsoft.EntityFrameworkCore.Design`, que contém ferramentas necessárias para a criação e gerenciamento de migrações de banco de dados e outras funcionalidades de design do Entity Framework Core.
+    
+- `dotnet add package Microsoft.EntityFrameworkCore.SqlServer`: Este comando adiciona o pacote `Microsoft.EntityFrameworkCore.SqlServer`, que permite que o Entity Framework Core se conecte e trabalhe com o banco de dados Microsoft SQL Server.
+    
+
+### **Gerenciar migrações com Entity Framework Core**
+
+- `dotnet-ef migrations add CriacaoTabelaContato`: Este comando cria uma nova migração chamada `CriacaoTabelaContato`. As migrações no Entity Framework Core são usadas para gerenciar e aplicar alterações no esquema do banco de dados de maneira controlada e versionada.
+    
+- `dotnet-ef database update`: Este comando aplica todas as migrações pendentes ao banco de dados, sincronizando-o com o esquema de dados definido no código do seu projeto. Ele garante que o banco de dados esteja atualizado com a versão mais recente das migrações.
+    
+- `dotnet watch run`: Este comando executa o projeto .NET e monitora mudanças no código. Se algum arquivo for alterado, ele recompila e reinicia automaticamente a aplicação, facilitando o desenvolvimento contínuo e o feedback rápido.
+
+
 # Doc Program.cs Introducción Apis con net
 
 Este código es parte de una configuración básica de una aplicación ASP.NET Core utilizando el enfoque de punto de entrada único (`Program.cs`). Aquí hay una explicación detallada:
